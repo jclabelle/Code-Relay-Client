@@ -1,11 +1,10 @@
 # CodeRelay User Manual
 
-<img width="864" alt="image" src="https://github.com/user-attachments/assets/8af29a88-4c3c-43b7-b055-f58a555677e4" />
-
-
 
 ## Overview
 **CodeRelay** is a lightweight tool that simplifies copying code from your codebase to an LLM chatbot. It focuses solely on viewing and transferring code, not on editing or full IDE functionalities.
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/8af29a88-4c3c-43b7-b055-f58a555677e4" />
 
 ## Features
 - **Code Viewer:** Browse code with syntax highlighting.
