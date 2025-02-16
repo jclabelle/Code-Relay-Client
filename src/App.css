@@ -1,38 +1,333 @@
-.App {
-  text-align: center;
+.app-container {
+  display: flex;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.left-sidebar {
+  width: 300px;
+  min-width: 25%;
+  max-width: 50%;
+  border-right: 1px solid #ccc;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  resize: horizontal;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+}
+
+.search-bar {
+  padding: 10px;
+}
+
+.app-container, .main-content, .left-sidebar, .search-bar {
+  background-color: #1E1E1E; /* Match the syntax highlighter's background */
+  color: #CCCCCC; /* Lighter color for text */
+}
+
+
+.search-input {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.search-input input {
+  flex: 1;
+  padding: 5px;
+}
+
+.search-input button {
+  margin-left: 5px;
+}
+
+.search-results {
+  padding: 10px;
+}
+
+.namespace-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.namespace-item {
+  margin-bottom: 15px;
+}
+
+.namespace-header {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.type-list {
+  list-style-type: none;
+  padding-left: 15px;
+}
+
+.type-item {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 5px;
+}
+
+.type-item button {
+  margin-right: 5px;
+}
+
+.type-item span {
+  cursor: pointer;
+}
+
+.member-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.member-group {
+  margin-bottom: 15px;
+}
+
+.member-group-header {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.member-group ul {
+  list-style-type: none;
+  padding-left: 15px;
+}
+
+.code-viewer, .selection-basket {
+  height: 100%;
+}
+
+.code-content {
+  height: calc(100% - 60px);
+  overflow-y: auto;
+}
+
+.tab-container {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.tab.active {
+  border-bottom: 2px solid #007bff;
+  color: #007bff;
+}
+
+.tab-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.namespace-header, .member-group-header, .tab, .directory-item span {
+  color: #CCCCCC; /* Light gray for text */
+}
+
+.tab.active {
+  color: #007bff; /* Retain the accent color for active tabs */
+}
+
+.left-sidebar {
+  background-color: #252526; /* Slightly darker than the main background */
+  border-right: 1px solid #3c3c3c; /* Subtle border */
+}
+
+.tab-container {
+  background-color: #333333; /* Dark background for the tab container */
+}
+
+.tab {
+  color: #CCCCCC; /* Light gray for unselected tabs */
+}
+
+.tab.active {
+  border-bottom: 2px solid #007bff;
+  color: #007bff;
+  background-color: #252526; /* Active tab matches sidebar background */
+}
+
+.search-input button, .copy-button, .export-button, .type-item button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+}
+
+.search-input button:hover, .copy-button:hover, .export-button:hover, .type-item button:hover {
+  background-color: #0056b3;
+}
+
+.search-input input {
+  background-color: #333333;
+  color: #CCCCCC;
+  border: 1px solid #3c3c3c;
+  padding: 5px;
+}
+
+.search-input input::placeholder {
+  color: #999999;
+}
+
+.namespace-item, .member-group {
+  border-bottom: 1px solid #3c3c3c; /* Subtle borders between items */
+}
+
+.type-item span, .member-group ul li {
+  cursor: pointer;
+  color: #007bff;
+}
+
+.type-item span:hover, .member-group ul li:hover {
+  color: #0056b3;
+}
+
+.alert {
+  background-color: #3c3c3c; /* Darker background */
+  color: #f8f8f8; /* Light text */
+  border-color: #5c5c5c;
+}
+
+.alert-title {
+  color: #ffffff;
+}
+
+.alert-info, .alert-success, .alert-warning, .alert-danger {
+  background-color: #3c3c3c;
+  border-color: #5c5c5c;
+}
+
+.code-content {
+  background-color: #1E1E1E;
+  color: #CCCCCC;
+}
+
+.tab:hover, .namespace-header:hover, .member-group-header:hover {
+  color: #007bff; /* Maintain a blue accent color on hover */
+}
+
+.selection-basket {
+  background-color: #1E1E1E; /* Match the background of the Code Viewer */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+}
+
+.selection-basket h3 {
+  color: #CCCCCC; /* Light gray title */
+}
+
+.selection-basket ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.selection-basket li {
+  color: #CCCCCC; /* Light gray text */
+  padding: 10px;
+  border-bottom: 1px solid #3c3c3c; /* Subtle border between items */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selection-basket li:last-child {
+  border-bottom: none; /* Remove border from the last item */
+}
+
+.selection-basket li:hover {
+  background-color: #333333; /* Slightly darker background on hover */
+}
+
+.selection-basket button {
+  background-color: #252526; /* Dark background for the button */
+  color: #CCCCCC; /* Light text color */
+  border: 1px solid #3c3c3c;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.selection-basket button:hover {
+  background-color: #333333; /* Darker background on hover */
+}
+
+.selection-basket .export-button {
+  background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.selection-basket .export-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.selection-basket .export-options label {
+  color: #CCCCCC; /* Light text */
+  margin-right: 10px;
+}
+
+.selection-basket .export-options input[type="checkbox"] {
+  margin-right: 5px;
+  accent-color: #007bff; /* Blue accent color for checkboxes */
+}
+
+.selection-basket .export-options {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.selection-basket ul {
+  margin-bottom: 15px;
+}
+
+.code-viewer {
+  background-color: #1E1E1E; /* Match background color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Same shadow as Selection Basket */
+  height: 100%;
+}
+
+.selection-basket .basket-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.selection-basket .clipboard-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.selection-basket .clipboard-button:hover {
+  background-color: #218838;
 }
